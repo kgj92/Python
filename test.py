@@ -1,30 +1,17 @@
-memory = []
+import turtle
+t = turtle.Turtle()
 
-def ai_response(user_input):
-    # 과거 기억 참고
-    context = " ".join(memory[-5:])
+def f():
+    t.forwrad(100)
+    t.left(90)
 
-    response = f"""
-    이전 기억:
-    {context}
+def h():
+    f(),f(),f(),f()
+    t.right()
 
-    사용자 입력:
-    {user_input}
-
-    더 나은 답변 생성
-    """
-
-    return response
-
-while True:
-    user = input("You: ")
-
-    answer = ai_response(user)
-
-    print("AI:", answer)
-
-    feedback = input("좋았나? (y/n): ")
-
-    if feedback == "y":
-        memory.append(user)
-        memory.append(answer)
+c = ["green", "yellow", "blue", "red"]
+for color in c:
+    t.color("blue", color)
+    t.begin_fill()
+    h()
+    t.end_fill()
